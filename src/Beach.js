@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Tour = ({ removeTour, id, image, info, price, name }) => {
+const Beach = ({ removeBeach, id, image, info, price, name }) => {
   const [readMore, setReadMore] = useState(false);
 
   return (
@@ -33,8 +33,8 @@ const Tour = ({ removeTour, id, image, info, price, name }) => {
         </p>
 
         <button
-          className="btn btn-primary col-5 mb-3"
-          onClick={() => removeTour(id)}
+          className="btn btn-outline-primary col-5 mb-3"
+          onClick={() => removeBeach(id)}
         >
           Dejar de ver
         </button>
@@ -43,4 +43,4 @@ const Tour = ({ removeTour, id, image, info, price, name }) => {
   );
 };
 
-export default Tour;
+export default Beach;

@@ -1,23 +1,23 @@
 import "./App.css";
 import Loading from "./Loading";
-import Tours from "./Tours";
+import Beaches from "./Beaches";
 import Data from "./Data";
 import { useState } from "react";
 
 function App() {
   const [loading, setLoading] = useState(false);
-  const [tours, setTours] = useState(Data);
+  const [beaches, setBeaches] = useState(Data);
 
-  const removeTour = (id) => {
-    const newTours = tours.filter((tour) => tour.id !== id);
-    setTours(newTours);
+  const removeBeach = (id) => {
+    const newBeaches = beaches.filter((beach) => beach.id !== id);
+    setBeaches(newBeaches);
   };
 
-  const refreshTours = () => {
+  const refreshBeaches = () => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      setTours(Data);
+      setBeaches(Data);
     }, 1000);
   };
 
@@ -29,11 +29,14 @@ function App() {
     );
   }
 
-  if (tours.length === 0) {
+  if (beaches.length === 0) {
     return (
       <main className="row justify-content-center">
         <div className="fs-1 fw-bolder text-center my-4">No mas playas</div>
-        <button className="btn btn-success col-5 mb-3" onClick={refreshTours}>
+        <button
+          className="btn btn-outline-success col-5 mb-3"
+          onClick={refreshBeaches}
+        >
           Cargar de nuevo
         </button>
       </main>
@@ -41,7 +44,7 @@ function App() {
   }
   return (
     <main>
-      <Tours tours={tours} removeTour={removeTour} />
+      <Beaches beaches={beaches} removeBeach={removeBeach} />
     </main>
   );
 }
